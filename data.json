@@ -1,0 +1,23 @@
+{
+  "referendum_id": 4503,
+  "source": "Państwowa Komisja Wyborcza",
+  "source_home": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/home",
+  "source_results": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/wyniki",
+  "source_turnout": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/frekwencja",
+  "source_ok": true,
+  "results_available": false,
+  "turnout": null,
+  "eligible": null,
+  "participants": null,
+  "valid_votes": null,
+  "yes_votes": null,
+  "no_votes": null,
+  "election_participants": null,
+  "threshold_3_5": null,
+  "commissions_total": null,
+  "commissions_reported": null,
+  "threshold_reached": null,
+  "yes_majority": null,
+  "updated_at": null,
+  "last_error": null
+}

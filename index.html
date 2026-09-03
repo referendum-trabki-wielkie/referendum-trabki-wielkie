@@ -3,204 +3,294 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Referendum 2026 – Gmina Trąbki Wielkie | Monitor PKW</title>
-  <meta name="description" content="Monitor oficjalnych informacji PKW dotyczących referendum w sprawie odwołania Wójta Gminy Trąbki Wielkie.">
-  <meta property="og:title" content="Referendum 2026 – Gmina Trąbki Wielkie">
-  <meta property="og:description" content="Oficjalne informacje i wyniki z serwisu Państwowej Komisji Wyborczej.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="">
+  <title>Referendum 2026 – Gmina Trąbki Wielkie | Oficjalne dane PKW</title>
+  <meta name="description" content="Czytelny monitor oficjalnych danych Państwowej Komisji Wyborczej dotyczących referendum w Gminie Trąbki Wielkie.">
   <meta name="theme-color" content="#111827">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Referendum 2026 – Gmina Trąbki Wielkie">
+  <meta property="og:description" content="Oficjalne dane i wyniki PKW w jednym czytelnym miejscu.">
+  <meta property="og:url" content="https://referendum-trabki-wielkie.github.io/referendum-trabki-wielkie/">
+  <meta property="og:image" content="https://referendum-trabki-wielkie.github.io/referendum-trabki-wielkie/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   <style>
-    :root {
-      --bg: #f3f4f6;
-      --panel: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --line: #e5e7eb;
-      --accent: #b91c1c;
-      --accent2: #7f1d1d;
-      --ok: #166534;
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    :root{
+      --bg:#f4f6f8;
+      --panel:#fff;
+      --text:#111827;
+      --muted:#667085;
+      --line:#e4e7ec;
+      --dark:#111827;
+      --red:#b42318;
+      --green:#067647;
+      --amber:#b54708;
+      --soft-red:#fef3f2;
+      --soft-green:#ecfdf3;
+      --soft-amber:#fffaeb;
+      --shadow:0 8px 24px rgba(16,24,40,.07);
     }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
+    *{box-sizing:border-box}
+    body{
+      margin:0;background:var(--bg);color:var(--text);
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
     }
-    header {
-      background: linear-gradient(135deg, #111827, #1f2937);
-      color: #fff;
-      padding: 22px 18px;
-      border-bottom: 5px solid var(--accent);
+    header{
+      background:linear-gradient(135deg,#101828,#1d2939);
+      border-bottom:5px solid var(--red);color:#fff;padding:25px 18px
     }
-    .wrap { max-width: 1400px; margin: 0 auto; }
-    .eyebrow {
-      font-size: 12px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      opacity: .78;
-      margin-bottom: 6px;
+    .wrap{max-width:1180px;margin:0 auto}
+    .eyebrow{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#d0d5dd;font-weight:700}
+    h1{font-size:clamp(27px,5vw,46px);line-height:1.05;margin:7px 0 7px}
+    .lead{color:#eaecf0;margin:0;max-width:850px;line-height:1.45}
+    main{padding:18px}
+    .topbar{
+      display:flex;gap:10px;align-items:center;justify-content:space-between;
+      margin:0 0 16px;flex-wrap:wrap
     }
-    h1 { margin: 0; font-size: clamp(24px, 4vw, 40px); line-height: 1.1; }
-    .sub { margin-top: 8px; color: #d1d5db; font-size: 15px; }
-    .toolbar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-      padding: 14px 18px;
-      background: var(--panel);
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      box-shadow: 0 3px 10px rgba(0,0,0,.04);
+    .source{font-size:14px;color:var(--muted)}
+    .buttons{display:flex;gap:8px;flex-wrap:wrap}
+    a.btn,button.btn{
+      border:1px solid var(--line);background:#fff;color:var(--text);
+      padding:10px 13px;border-radius:9px;text-decoration:none;font-weight:700;
+      font-size:14px;cursor:pointer
     }
-    button, a.btn {
-      appearance: none;
-      border: 0;
-      border-radius: 10px;
-      padding: 11px 14px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
+    a.primary{background:var(--red);border-color:var(--red);color:#fff}
+    .statusbox{
+      background:#fff;border:1px solid var(--line);border-radius:14px;
+      padding:17px 18px;margin-bottom:16px;box-shadow:var(--shadow)
     }
-    .primary { background: var(--accent); color: white; }
-    .primary:hover { background: var(--accent2); }
-    .secondary { background: #f9fafb; color: var(--text); border: 1px solid var(--line); }
-    .status {
-      margin-left: auto;
-      font-size: 13px;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 7px;
+    .statusline{display:flex;gap:11px;align-items:flex-start}
+    .statusdot{width:12px;height:12px;border-radius:50%;margin-top:5px;flex:0 0 auto}
+    .status-title{font-weight:800;font-size:18px}
+    .status-desc{color:var(--muted);font-size:14px;margin-top:3px;line-height:1.4}
+    .dot-waiting{background:var(--amber)}
+    .dot-live{background:var(--green)}
+    .dot-error{background:var(--red)}
+    .grid{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px
     }
-    .dot {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: var(--ok);
-      box-shadow: 0 0 0 4px rgba(22,101,52,.10);
+    .card{
+      background:var(--panel);border:1px solid var(--line);border-radius:14px;
+      padding:17px;box-shadow:var(--shadow);min-height:128px
     }
-    main { padding: 18px; }
-    .notice {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      padding: 12px 14px;
-      border-radius: 12px;
-      margin-bottom: 14px;
-      color: #7c2d12;
-      font-size: 14px;
-      line-height: 1.45;
+    .label{font-size:13px;color:var(--muted);font-weight:650;line-height:1.3}
+    .value{font-size:clamp(27px,4vw,39px);font-weight:850;margin-top:9px;letter-spacing:-.03em}
+    .small{font-size:13px;color:var(--muted);margin-top:5px}
+    .section-title{font-size:21px;margin:25px 0 12px}
+    .threshold{
+      display:grid;grid-template-columns:1fr 1fr;gap:13px
     }
-    .framebox {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      min-height: 72vh;
+    .decision{
+      border-radius:14px;padding:18px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)
     }
-    iframe {
-      display: block;
-      width: 100%;
-      height: 78vh;
-      border: 0;
-      background: white;
+    .decision strong{font-size:20px}
+    .decision p{margin:5px 0 0;color:var(--muted);line-height:1.45;font-size:14px}
+    .yes{background:var(--soft-green);border-color:#abefc6}
+    .no{background:var(--soft-red);border-color:#fecdca}
+    .pending{background:var(--soft-amber);border-color:#fedf89}
+    .footnote{
+      font-size:13px;color:var(--muted);line-height:1.5;margin-top:18px;
+      background:#fff;border:1px solid var(--line);padding:14px;border-radius:12px
     }
-    footer {
-      padding: 16px 18px 26px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    @media (max-width: 760px) {
-      .status { width: 100%; margin-left: 0; }
-      .toolbar { position: static; }
-      iframe { height: 72vh; }
+    footer{padding:5px 18px 30px;color:var(--muted);font-size:12px}
+    .hidden{display:none!important}
+    @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:600px){
+      .grid,.threshold{grid-template-columns:1fr}
+      header{padding-top:20px}
+      .card{min-height:112px}
+      .value{font-size:34px}
     }
   </style>
 </head>
 <body>
 <header>
   <div class="wrap">
-    <div class="eyebrow">Monitor oficjalnych danych</div>
-    <h1>Referendum 2026 – Gmina Trąbki Wielkie</h1>
-    <div class="sub">Referendum w sprawie odwołania Wójta Gminy Trąbki Wielkie przed upływem kadencji</div>
+    <div class="eyebrow">Monitor oficjalnych danych PKW</div>
+    <h1>Referendum 2026<br>Gmina Trąbki Wielkie</h1>
+    <p class="lead">Referendum w sprawie odwołania Wójta Gminy Trąbki Wielkie przed upływem kadencji.</p>
   </div>
 </header>
 
-<div class="toolbar">
-  <button class="primary" onclick="showPage('home')">🏛 Strona PKW</button>
-  <button class="secondary" onclick="showPage('wyniki')">📊 Wyniki</button>
-  <button class="secondary" onclick="refreshFrame()">↻ Odśwież</button>
-  <a class="btn secondary" id="externalLink" target="_blank" rel="noopener noreferrer">↗ Otwórz w PKW</a>
-  <div class="status"><span class="dot"></span><span id="statusText">Automatyczne odświeżanie co 60 sekund</span></div>
-</div>
-
 <main class="wrap">
-  <div class="notice">
-    Dane pochodzą bezpośrednio z oficjalnego serwisu Państwowej Komisji Wyborczej.
-    Jeżeli PKW zablokuje wyświetlanie swojej strony wewnątrz ramki, użyj przycisku „Otwórz w PKW”.
+  <div class="topbar">
+    <div class="source">Źródło danych: <strong>Państwowa Komisja Wyborcza</strong></div>
+    <div class="buttons">
+      <button class="btn" onclick="loadData()">↻ Odśwież panel</button>
+      <a class="btn primary" href="https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/home" target="_blank" rel="noopener">Otwórz oficjalną stronę PKW ↗</a>
+    </div>
   </div>
-  <div class="framebox">
-    <iframe
-      id="pkwFrame"
-      title="Państwowa Komisja Wyborcza – Referendum Trąbki Wielkie"
-      referrerpolicy="no-referrer-when-downgrade"
-      loading="eager">
-    </iframe>
+
+  <section class="statusbox">
+    <div class="statusline">
+      <span id="statusDot" class="statusdot dot-waiting"></span>
+      <div>
+        <div id="statusTitle" class="status-title">Sprawdzanie danych PKW…</div>
+        <div id="statusDesc" class="status-desc">Panel pobiera najnowsze dane zapisane przez automat.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid">
+    <div class="card">
+      <div class="label">Frekwencja</div>
+      <div id="turnout" class="value">—</div>
+      <div class="small">według danych PKW</div>
+    </div>
+    <div class="card">
+      <div class="label">Osoby uprawnione do głosowania</div>
+      <div id="eligible" class="value">—</div>
+    </div>
+    <div class="card">
+      <div class="label">Osoby, które wzięły udział w głosowaniu</div>
+      <div id="participants" class="value">—</div>
+      <div class="small">liczba kart ważnych</div>
+    </div>
+    <div class="card">
+      <div class="label">Protokoły / obwody z danymi</div>
+      <div id="protocols" class="value">—</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Wynik głosowania</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="label">Głosy ważne</div>
+      <div id="validVotes" class="value">—</div>
+    </div>
+    <div class="card">
+      <div class="label">TAK – za odwołaniem</div>
+      <div id="yesVotes" class="value">—</div>
+    </div>
+    <div class="card">
+      <div class="label">NIE – przeciw odwołaniu</div>
+      <div id="noVotes" class="value">—</div>
+    </div>
+    <div class="card">
+      <div class="label">Próg 3/5 wskazany przez PKW</div>
+      <div id="threshold" class="value">—</div>
+    </div>
+  </div>
+
+  <h2 class="section-title">Próg i wynik</h2>
+  <div class="threshold">
+    <div id="thresholdBox" class="decision pending">
+      <strong id="thresholdResult">Oczekiwanie na dane</strong>
+      <p id="thresholdText">Po opublikowaniu liczb przez PKW panel porówna liczbę uczestników referendum z progiem 3/5 podanym przez PKW.</p>
+    </div>
+    <div id="majorityBox" class="decision pending">
+      <strong id="majorityResult">Oczekiwanie na dane</strong>
+      <p id="majorityText">Panel pokaże, czy głosy „TAK” stanowią więcej niż połowę ważnych głosów.</p>
+    </div>
+  </div>
+
+  <div class="footnote">
+    <strong>Ważne:</strong> ta strona nie jest serwisem Państwowej Komisji Wyborczej.
+    Prezentuje w uproszczonej formie dane automatycznie odczytywane z oficjalnego serwisu PKW.
+    W razie rozbieżności rozstrzygające są dane i dokumenty opublikowane przez PKW.
+    <br><br>
+    Ostatnia zmiana danych w panelu: <strong id="updatedAt">—</strong>.
+    Przeglądarka sprawdza plik z danymi co 60 sekund.
   </div>
 </main>
 
 <footer class="wrap">
-  Źródło: Państwowa Komisja Wyborcza. Ten panel nie modyfikuje danych PKW i służy wyłącznie do ich wygodnego udostępniania.
-  Ostatnie odświeżenie: <span id="lastRefresh">—</span>.
+  Adres źródłowy PKW: wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/
 </footer>
 
 <script>
-  const BASE = "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503";
-  const pages = {
-    home: BASE + "/home",
-    wyniki: BASE + "/wyniki"
-  };
-  let currentPage = "home";
+  const fmt = v => (v === null || v === undefined || v === "") ? "—" :
+    (typeof v === "number" ? new Intl.NumberFormat("pl-PL").format(v) : v);
 
-  function setTimestamp() {
-    const now = new Date();
-    document.getElementById("lastRefresh").textContent =
-      now.toLocaleString("pl-PL", { dateStyle: "short", timeStyle: "medium" });
+  function setBox(boxId, resultId, textId, kind, result, text){
+    const box=document.getElementById(boxId);
+    box.className="decision "+kind;
+    document.getElementById(resultId).textContent=result;
+    document.getElementById(textId).textContent=text;
   }
 
-  function load(url) {
-    const frame = document.getElementById("pkwFrame");
-    frame.src = url;
-    document.getElementById("externalLink").href = url;
-    setTimestamp();
+  function render(d){
+    document.getElementById("turnout").textContent = d.turnout || "—";
+    document.getElementById("eligible").textContent = fmt(d.eligible);
+    document.getElementById("participants").textContent = fmt(d.participants);
+    document.getElementById("validVotes").textContent = fmt(d.valid_votes);
+    document.getElementById("yesVotes").textContent = fmt(d.yes_votes);
+    document.getElementById("noVotes").textContent = fmt(d.no_votes);
+    document.getElementById("threshold").textContent = fmt(d.threshold_3_5);
+
+    const protocols = (d.commissions_reported !== null && d.commissions_total !== null)
+      ? `${d.commissions_reported} / ${d.commissions_total}` : "—";
+    document.getElementById("protocols").textContent = protocols;
+
+    const dot=document.getElementById("statusDot");
+    const title=document.getElementById("statusTitle");
+    const desc=document.getElementById("statusDesc");
+
+    if(d.source_ok === false){
+      dot.className="statusdot dot-error";
+      title.textContent="Ostatnia próba odczytu PKW nie powiodła się";
+      desc.textContent="Panel zachowuje ostatnie poprawnie pobrane dane. Skorzystaj z przycisku prowadzącego bezpośrednio do PKW.";
+    } else if(d.results_available){
+      dot.className="statusdot dot-live";
+      title.textContent="Dane wynikowe PKW są dostępne";
+      desc.textContent="Panel prezentuje najnowsze dane pobrane z oficjalnego serwisu PKW.";
+    } else {
+      dot.className="statusdot dot-waiting";
+      title.textContent="Oczekiwanie na publikację danych przez PKW";
+      desc.textContent="Strona działa prawidłowo. Dane pojawią się automatycznie po ich udostępnieniu przez PKW.";
+    }
+
+    if(d.updated_at){
+      try{
+        const dt=new Date(d.updated_at);
+        document.getElementById("updatedAt").textContent=dt.toLocaleString("pl-PL");
+      }catch(e){document.getElementById("updatedAt").textContent=d.updated_at}
+    }
+
+    if(d.threshold_reached === true){
+      setBox("thresholdBox","thresholdResult","thresholdText","yes",
+        "Próg 3/5 osiągnięty",
+        `Udział w referendum: ${fmt(d.participants)}. Próg wskazany przez PKW: ${fmt(d.threshold_3_5)}.`);
+    }else if(d.threshold_reached === false){
+      setBox("thresholdBox","thresholdResult","thresholdText","no",
+        "Próg 3/5 nieosiągnięty",
+        `Udział w referendum: ${fmt(d.participants)}. Próg wskazany przez PKW: ${fmt(d.threshold_3_5)}.`);
+    }else{
+      setBox("thresholdBox","thresholdResult","thresholdText","pending",
+        "Oczekiwanie na dane",
+        "Po opublikowaniu danych przez PKW panel automatycznie wykona porównanie.");
+    }
+
+    if(d.yes_majority === true){
+      setBox("majorityBox","majorityResult","majorityText","yes",
+        "Większość ważnych głosów: TAK",
+        `Głosy TAK: ${fmt(d.yes_votes)}; głosy ważne: ${fmt(d.valid_votes)}.`);
+    }else if(d.yes_majority === false){
+      setBox("majorityBox","majorityResult","majorityText","no",
+        "Brak większości ważnych głosów za odwołaniem",
+        `Głosy TAK: ${fmt(d.yes_votes)}; głosy ważne: ${fmt(d.valid_votes)}.`);
+    }else{
+      setBox("majorityBox","majorityResult","majorityText","pending",
+        "Oczekiwanie na dane",
+        "Ocena pojawi się po publikacji liczby ważnych głosów i głosów „TAK”.");
+    }
   }
 
-  function showPage(name) {
-    currentPage = name;
-    load(pages[name]);
+  async function loadData(){
+    try{
+      const r=await fetch(`data.json?t=${Date.now()}`,{cache:"no-store"});
+      if(!r.ok) throw new Error("HTTP "+r.status);
+      render(await r.json());
+    }catch(e){
+      document.getElementById("statusDot").className="statusdot dot-error";
+      document.getElementById("statusTitle").textContent="Nie udało się wczytać pliku danych";
+      document.getElementById("statusDesc").textContent="Odśwież stronę lub przejdź bezpośrednio do serwisu PKW.";
+    }
   }
-
-  function refreshFrame() {
-    const baseUrl = pages[currentPage];
-    const glue = baseUrl.includes("?") ? "&" : "?";
-    load(baseUrl + glue + "_refresh=" + Date.now());
-  }
-
-  document.getElementById("pkwFrame").addEventListener("load", () => {
-    document.getElementById("statusText").textContent =
-      "Połączenie z PKW aktywne • auto-odświeżanie co 60 sekund";
-  });
-
-  showPage("home");
-  setInterval(refreshFrame, 60000);
+  loadData();
+  setInterval(loadData,60000);
 </script>
 </body>
 </html>
