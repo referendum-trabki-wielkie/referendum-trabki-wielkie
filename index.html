@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Referendum 2026 – Gmina Trąbki Wielkie | Monitor PKW</title>
+  <meta name="description" content="Monitor oficjalnych informacji PKW dotyczących referendum w sprawie odwołania Wójta Gminy Trąbki Wielkie.">
+  <meta property="og:title" content="Referendum 2026 – Gmina Trąbki Wielkie">
+  <meta property="og:description" content="Oficjalne informacje i wyniki z serwisu Państwowej Komisji Wyborczej.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta name="theme-color" content="#111827">
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --panel: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #b91c1c;
+      --accent2: #7f1d1d;
+      --ok: #166534;
+      --shadow: 0 10px 30px rgba(0,0,0,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: linear-gradient(135deg, #111827, #1f2937);
+      color: #fff;
+      padding: 22px 18px;
+      border-bottom: 5px solid var(--accent);
+    }
+    .wrap { max-width: 1400px; margin: 0 auto; }
+    .eyebrow {
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      opacity: .78;
+      margin-bottom: 6px;
+    }
+    h1 { margin: 0; font-size: clamp(24px, 4vw, 40px); line-height: 1.1; }
+    .sub { margin-top: 8px; color: #d1d5db; font-size: 15px; }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      padding: 14px 18px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 3px 10px rgba(0,0,0,.04);
+    }
+    button, a.btn {
+      appearance: none;
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .primary { background: var(--accent); color: white; }
+    .primary:hover { background: var(--accent2); }
+    .secondary { background: #f9fafb; color: var(--text); border: 1px solid var(--line); }
+    .status {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 4px rgba(22,101,52,.10);
+    }
+    main { padding: 18px; }
+    .notice {
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      padding: 12px 14px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      color: #7c2d12;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .framebox {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 72vh;
+    }
+    iframe {
+      display: block;
+      width: 100%;
+      height: 78vh;
+      border: 0;
+      background: white;
+    }
+    footer {
+      padding: 16px 18px 26px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 760px) {
+      .status { width: 100%; margin-left: 0; }
+      .toolbar { position: static; }
+      iframe { height: 72vh; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Monitor oficjalnych danych</div>
+    <h1>Referendum 2026 – Gmina Trąbki Wielkie</h1>
+    <div class="sub">Referendum w sprawie odwołania Wójta Gminy Trąbki Wielkie przed upływem kadencji</div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="primary" onclick="showPage('home')">🏛 Strona PKW</button>
+  <button class="secondary" onclick="showPage('wyniki')">📊 Wyniki</button>
+  <button class="secondary" onclick="refreshFrame()">↻ Odśwież</button>
+  <a class="btn secondary" id="externalLink" target="_blank" rel="noopener noreferrer">↗ Otwórz w PKW</a>
+  <div class="status"><span class="dot"></span><span id="statusText">Automatyczne odświeżanie co 60 sekund</span></div>
+</div>
+
+<main class="wrap">
+  <div class="notice">
+    Dane pochodzą bezpośrednio z oficjalnego serwisu Państwowej Komisji Wyborczej.
+    Jeżeli PKW zablokuje wyświetlanie swojej strony wewnątrz ramki, użyj przycisku „Otwórz w PKW”.
+  </div>
+  <div class="framebox">
+    <iframe
+      id="pkwFrame"
+      title="Państwowa Komisja Wyborcza – Referendum Trąbki Wielkie"
+      referrerpolicy="no-referrer-when-downgrade"
+      loading="eager">
+    </iframe>
+  </div>
+</main>
+
+<footer class="wrap">
+  Źródło: Państwowa Komisja Wyborcza. Ten panel nie modyfikuje danych PKW i służy wyłącznie do ich wygodnego udostępniania.
+  Ostatnie odświeżenie: <span id="lastRefresh">—</span>.
+</footer>
+
+<script>
+  const BASE = "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503";
+  const pages = {
+    home: BASE + "/home",
+    wyniki: BASE + "/wyniki"
+  };
+  let currentPage = "home";
+
+  function setTimestamp() {
+    const now = new Date();
+    document.getElementById("lastRefresh").textContent =
+      now.toLocaleString("pl-PL", { dateStyle: "short", timeStyle: "medium" });
+  }
+
+  function load(url) {
+    const frame = document.getElementById("pkwFrame");
+    frame.src = url;
+    document.getElementById("externalLink").href = url;
+    setTimestamp();
+  }
+
+  function showPage(name) {
+    currentPage = name;
+    load(pages[name]);
+  }
+
+  function refreshFrame() {
+    const baseUrl = pages[currentPage];
+    const glue = baseUrl.includes("?") ? "&" : "?";
+    load(baseUrl + glue + "_refresh=" + Date.now());
+  }
+
+  document.getElementById("pkwFrame").addEventListener("load", () => {
+    document.getElementById("statusText").textContent =
+      "Połączenie z PKW aktywne • auto-odświeżanie co 60 sekund";
+  });
+
+  showPage("home");
+  setInterval(refreshFrame, 60000);
+</script>
+</body>
+</html>
