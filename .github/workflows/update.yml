@@ -1,0 +1,46 @@
+name: Aktualizacja danych PKW
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pkw-update
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Pobierz repozytorium
+        uses: actions/checkout@v4
+
+      - name: Ustaw Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Zainstaluj zależności
+        run: pip install -r requirements.txt
+
+      - name: Pobierz i przelicz dane PKW
+        run: python update.py
+
+      - name: Zapisz zmienione dane
+        run: |
+          if git diff --quiet -- data.json; then
+            echo "Brak zmian w danych."
+            exit 0
+          fi
+          git config user.name "referendum-pkw-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git commit -m "Automatyczna aktualizacja danych PKW"
+          git push
