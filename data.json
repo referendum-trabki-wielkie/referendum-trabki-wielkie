@@ -4,7 +4,7 @@
   "source_home": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/home",
   "source_results": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/wyniki",
   "source_turnout": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/frekwencja",
-  "source_ok": false,
+  "source_ok": true,
   "results_available": false,
   "turnout": null,
   "eligible": null,
@@ -18,6 +18,6 @@
   "commissions_reported": null,
   "threshold_reached": null,
   "yes_majority": null,
-  "updated_at": "2026-09-16T18:09:11Z",
-  "last_error": "wyniki: ConnectTimeout: HTTPSConnectionPool(host='wybory.gov.pl', port=443): Max retries exceeded with url: /referendum_lokalne_2024_2029/pl/4503/wyniki (Caused by ConnectTimeoutError(<HTTPSConnection(host='wybory.gov.pl', port=443) at 0x7fa411b6ebd0>, 'Connection to wybory.gov.pl timed out. (connect timeout=25)')) | frekwencja: ConnectTimeout: HTTPSConnectionPool(host='wybory.gov.pl', port=443): Max retries exceeded with url: /referendum_lokalne_2024_2029/pl/4503/frekwencja (Caused by ConnectTimeoutError(<HTTPSConnection(host='wybory.gov.pl', port=443) at 0x7fa4109a0cb0>, 'Connection to wybory.gov.pl timed out. (connect timeout=25)'))"
+  "updated_at": "2026-09-16T18:27:13Z",
+  "last_error": null
 }
