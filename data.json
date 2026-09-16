@@ -18,6 +18,6 @@
   "commissions_reported": null,
   "threshold_reached": null,
   "yes_majority": null,
-  "updated_at": "2026-09-16T17:54:45Z",
-  "last_error": "wyniki: ConnectTimeout: HTTPSConnectionPool(host='wybory.gov.pl', port=443): Max retries exceeded with url: /referendum_lokalne_2024_2029/pl/4503/wyniki (Caused by ConnectTimeoutError(<HTTPSConnection(host='wybory.gov.pl', port=443) at 0x7f5f1bf114c0>, 'Connection to wybory.gov.pl timed out. (connect timeout=25)')) | frekwencja: ConnectTimeout: HTTPSConnectionPool(host='wybory.gov.pl', port=443): Max retries exceeded with url: /referendum_lokalne_2024_2029/pl/4503/frekwencja (Caused by ConnectTimeoutError(<HTTPSConnection(host='wybory.gov.pl', port=443) at 0x7f5f1b6b4860>, 'Connection to wybory.gov.pl timed out. (connect timeout=25)'))"
+  "updated_at": "2026-09-16T18:09:11Z",
+  "last_error": "wyniki: ConnectTimeout: HTTPSConnectionPool(host='wybory.gov.pl', port=443): Max retries exceeded with url: /referendum_lokalne_2024_2029/pl/4503/wyniki (Caused by ConnectTimeoutError(<HTTPSConnection(host='wybory.gov.pl', port=443) at 0x7fa411b6ebd0>, 'Connection to wybory.gov.pl timed out. (connect timeout=25)')) | frekwencja: ConnectTimeout: HTTPSConnectionPool(host='wybory.gov.pl', port=443): Max retries exceeded with url: /referendum_lokalne_2024_2029/pl/4503/frekwencja (Caused by ConnectTimeoutError(<HTTPSConnection(host='wybory.gov.pl', port=443) at 0x7fa4109a0cb0>, 'Connection to wybory.gov.pl timed out. (connect timeout=25)'))"
 }
