@@ -4,7 +4,7 @@
   "source_home": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/home",
   "source_results": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/wyniki",
   "source_turnout": "https://wybory.gov.pl/referendum_lokalne_2024_2029/pl/4503/frekwencja",
-  "source_ok": true,
+  "source_ok": false,
   "results_available": false,
   "turnout": null,
   "eligible": null,
@@ -18,6 +18,6 @@
   "commissions_reported": null,
   "threshold_reached": null,
   "yes_majority": null,
-  "updated_at": "2026-09-11T18:55:22Z",
-  "last_error": null
+  "updated_at": "2026-09-16T17:43:05Z",
+  "last_error": "wyniki: ReadTimeout: HTTPSConnectionPool(host='wybory.gov.pl', port=443): Read timed out. (read timeout=25) | frekwencja: ReadTimeout: HTTPSConnectionPool(host='wybory.gov.pl', port=443): Read timed out. (read timeout=25)"
 }
